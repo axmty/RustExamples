@@ -17,7 +17,7 @@ impl fmt::Display for List {
             if count != 0 {
                 write!(f, ", ")?;
             }
-            write!(f, "{}", v)?;
+            write!(f, "{}: {}", count, v)?;
         }
 
         // No semicolon = return statement.
