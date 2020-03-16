@@ -8,6 +8,12 @@ impl fmt::Display for Structure {
     }
 }
 
+impl fmt::Binary for Structure {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{:b}", self.0)
+    }
+}
+
 #[derive(Debug)]
 struct MinMax(i64, i64);
 
@@ -32,6 +38,7 @@ impl fmt::Display for Point2D {
 fn main() {
     let s = Structure(8);
     println!("s is {}", s);
+    println!("Binary value of s is {:b}", s);
 
     let minmax = MinMax(0, 14);
     println!("{}", minmax);
