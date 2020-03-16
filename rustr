@@ -1,0 +1,6 @@
+#!/bin/bash
+
+mkdir -p target
+output=${1%.rs}
+rustc -o target/"$output" $1
+./target/"$output"
