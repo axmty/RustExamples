@@ -1,6 +1,8 @@
 #!/bin/bash
 
+# Compile and run a .rs rust file.
+
+output=$(basename $1 .rs)
 mkdir -p target
-output=${1%.rs}
 rustc -o target/"$output" $1
 ./target/"$output"
