@@ -18,6 +18,23 @@ fn inspect(event: WebEvent) {
     }
 }
 
+enum VeryVerboseEnumOfThingsToDoWithNumbers {
+    Add,
+    Substract,
+}
+
+// Self is an alias of VeryVerboseEnumOfThingsToDoWithNumbers.
+impl VeryVerboseEnumOfThingsToDoWithNumbers {
+    fn run(&self, x: i32, y: i32) -> i32 {
+        match self {
+            Self::Add => x + y,
+            Self::Substract => x - y,
+        }
+    }
+}
+
+type Operations = VeryVerboseEnumOfThingsToDoWithNumbers;
+
 fn main() {
     let pressed = WebEvent::KeyPress('x');
     let pasted = WebEvent::Paste("my text".to_string());
@@ -30,4 +47,8 @@ fn main() {
     inspect(click);
     inspect(load);
     inspect(unload);
+
+    // Use alias Operations instead of VeryVerboseEnumOfThingsToDoWithNumbers.
+    let op = Operations::Add;
+    println!("{}", op.run(3, 4));
 }
