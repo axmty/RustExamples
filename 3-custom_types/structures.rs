@@ -23,6 +23,7 @@ struct Rectangle {
     bottom_right: Point,
 }
 
+// Calculate the area of a rectangle.
 fn rect_area(rect: &Rectangle) -> f32 {
     let Rectangle {
         top_left: Point { x: left_edge, y: top_edge },
@@ -32,6 +33,7 @@ fn rect_area(rect: &Rectangle) -> f32 {
     (right_edge - left_edge) * (top_edge - bottom_edge)
 }
 
+// Create a square Rectangle, from lower left Point and size.
 fn square(lower_left: &Point, size: f32) -> Rectangle {
     let Point { x: bottom, y: left } = lower_left;
     Rectangle {
