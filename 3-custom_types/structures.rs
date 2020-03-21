@@ -32,6 +32,14 @@ fn rect_area(rect: &Rectangle) -> f32 {
     (right_edge - left_edge) * (top_edge - bottom_edge)
 }
 
+fn square(lower_left: &Point, size: f32) -> Rectangle {
+    let Point { x: bottom, y: left } = lower_left;
+    Rectangle {
+        top_left: Point { x: *left, y: bottom + size },
+        bottom_right: Point { x: left + size, y: *bottom },
+    }
+}
+
 fn main() {
     // Create and display (debug) a Person structure.
     let name = "Peter";
@@ -71,4 +79,9 @@ fn main() {
         bottom_right: Point { x: 5.3, y: 4.8 }
     };
     println!("{:?} area is {:.1}", rect, rect_area(&rect));
+
+    // Activity: create a square from a Point and a size.
+    println!(
+        "created square Rect: {:?}",
+        square(&Point { x: 1.0, y: 1.0 }, 3.0));
 }
