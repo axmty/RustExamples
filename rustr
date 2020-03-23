@@ -5,4 +5,5 @@
 output=$(basename $1 .rs)
 mkdir -p target
 rustc -o target/"$output" $1
+rustfmt $1
 ./target/"$output"
