@@ -11,6 +11,14 @@ enum Color {
     CMYK(u32, u32, u32, u32),
 }
 
+fn age() -> u32 {
+    15
+}
+
+fn some_number() -> Option<u32> {
+    Some(42)
+}
+
 fn main() {
     let number = 13;
 
@@ -18,7 +26,7 @@ fn main() {
     match number {
         1 => println!("One!"),
         2 | 3 | 5 | 7 | 11 => println!("This is a prime!"),
-        13..=19 => println!("A teen"),
+        13 ..= 19 => println!("A teen"),
         _ => println!("Ain't special"),
     }
 
@@ -125,4 +133,26 @@ fn main() {
         (x, _) if x % 2 == 1 => println!("The first on is odd"),
         _ => println!("No correlation..."),
     }
+
+
+    // Binding.
+    println!("Tell me what type of person you are");
+
+    match age() {
+        0             => println!("I'm not born yet I guess"),
+        n @ 1 ..= 12  => println!("I'm a child of age {:?}", n),
+        n @ 13 ..= 19 => println!("I'm a teen of age {:?}", n),
+        n             => println!("I'm an old person of age {:?}", n),
+    }
+
+
+    match some_number() {
+        Some(n @ 42) => println!("The Answer: {}!", n),
+        Some(n)      => println!("Not interesting... {}", n),
+        _            => (),
+    }
 }
+
+
+
+
